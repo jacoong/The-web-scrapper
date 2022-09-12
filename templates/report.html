@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+  <head>
+    <title>job contracter's result</title>
+    <link
+      href="{{ url_for('static', filename='style.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+
+    <body>
+      <main class="container">
+        <img src="../static/back.png" onClick='main()'>
+        <h1 class="result_title">Good News!!</h1>
+        <h2 class="result_sentense">we've got {{word}}'s result!!<br> results:{{number}}</h2>
+        <div class="result_export"><a href="/download?word={{word}}">export</a>
+        </div>
+
+        <table role="grid">
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>position</th>
+              <th>location</th>
+              <th>link</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for potato in jobs %}
+            <tr>
+              <td>{{potato.company}}</td>
+              <td>{{potato.position}}</td>
+              <td>{{potato.location}}</td>
+              <td><a href="{{potato.link}}">click</a></td>
+              <td></td>
+            </tr>
+
+            {% endfor %}
+          </tbody>
+        </table>
+      </main>
+    </body>
+    <script src="{{url_for('static', filename='app.js')}}"></script>
+  </article>
+</html>

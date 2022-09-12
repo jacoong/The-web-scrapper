@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html data-theme="dark">
+  <head>
+    <title>job contracter</title>
+
+    <link
+      href="{{ url_for('static', filename='style.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <h1 class="title">job scrapper</h1>
+      <form action="/report" methond="get">
+        <input
+          type="text"
+          placeholder="what jobs would you looking for"
+          required
+          name="word"
+        />
+        <button class="index_submit_button">submit</button>
+        <button class="index_loading_button hidden" aria-busy="true">
+          Please wait…
+        </button>
+      </form>
+    </main>
+    <script src="{{url_for('static', filename='app.js')}}"></script>
+  </body>
+</html>
