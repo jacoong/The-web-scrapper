@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const sourceItems = document.querySelectorAll('.source-item');
     const wantedInput = document.getElementById('wantedInput');
     const saraminInput = document.getElementById('saraminInput');
-    const jobplanetInput = document.getElementById('jobplanetInput');
-    const worknetInput = document.getElementById('worknetInput');
+    const remoteokInput = document.getElementById('remoteokInput');
+    const weworkremotelyInput = document.getElementById('weworkremotelyInput');
     
     // 지역 선택 기능
     const cityLevel = document.getElementById('cityLevel');
@@ -60,16 +60,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 해당 입력 필드 비활성화
                 if (site === 'wanted') wantedInput.value = 'false';
                 if (site === 'saramin') saraminInput.value = 'false';
-                if (site === 'jobplanet') jobplanetInput.value = 'false';
-                if (site === 'worknet') worknetInput.value = 'false';
+                if (site === 'remoteok') remoteokInput.value = 'false';
+                if (site === 'weworkremotely') weworkremotelyInput.value = 'false';
             } else {
                 this.classList.add('selected');
                 this.classList.remove('disabled');
                 // 해당 입력 필드 활성화
                 if (site === 'wanted') wantedInput.value = 'true';
                 if (site === 'saramin') saraminInput.value = 'true';
-                if (site === 'jobplanet') jobplanetInput.value = 'true';
-                if (site === 'worknet') worknetInput.value = 'true';
+                if (site === 'remoteok') remoteokInput.value = 'true';
+                if (site === 'weworkremotely') weworkremotelyInput.value = 'true';
             }
         });
     });

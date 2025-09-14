@@ -188,12 +188,12 @@
             box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
         }
         
-        .filter-btn.jobplanet.active {
+        .filter-btn.remoteok.active {
             background: linear-gradient(45deg, #FF9800, #F57C00);
             box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
         }
         
-        .filter-btn.worknet.active {
+        .filter-btn.weworkremotely.active {
             background: linear-gradient(45deg, #9C27B0, #7B1FA2);
             box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
         }
@@ -329,16 +329,16 @@
                     <div class="stat-label">사람인</div>
                 </div>
                 {% endif %}
-                {% if jobplanet_enabled %}
+                {% if remoteok_enabled %}
                 <div class="stat-item">
-                    <div class="stat-number">{{jobplanet_count}}</div>
-                    <div class="stat-label">잡플래닛</div>
+                    <div class="stat-number">{{remoteok_count}}</div>
+                    <div class="stat-label">RemoteOK</div>
                 </div>
                 {% endif %}
-                {% if worknet_enabled %}
+                {% if weworkremotely_enabled %}
                 <div class="stat-item">
-                    <div class="stat-number">{{worknet_count}}</div>
-                    <div class="stat-label">워크넷</div>
+                    <div class="stat-number">{{weworkremotely_count}}</div>
+                    <div class="stat-label">WeWorkRemotely</div>
                 </div>
                 {% endif %}
             </div>
@@ -358,11 +358,11 @@
                 {% if saramin_enabled %}
                 <button class="filter-btn saramin active" data-source="사람인">사람인</button>
                 {% endif %}
-                {% if jobplanet_enabled %}
-                <button class="filter-btn jobplanet active" data-source="JobPlanet">잡플래닛</button>
+                {% if remoteok_enabled %}
+                <button class="filter-btn remoteok active" data-source="RemoteOK">RemoteOK</button>
                 {% endif %}
-                {% if worknet_enabled %}
-                <button class="filter-btn worknet active" data-source="WorkNet">워크넷</button>
+                {% if weworkremotely_enabled %}
+                <button class="filter-btn weworkremotely active" data-source="WeWorkRemotely">WeWorkRemotely</button>
                 {% endif %}
             </div>
         </div>
