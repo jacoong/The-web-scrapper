@@ -16,7 +16,9 @@ def extract_jobs(term):
         "job_sort": "company.response_rate_order",
         "years": "-1",
         "locations": "all",
-        "limit": "50"
+        "limit": "50",
+        "tag_type_ids": "518",  # 개발자 태그
+        "query": term  # 검색어 추가
     }
     
     try:
@@ -28,16 +30,12 @@ def extract_jobs(term):
             if 'data' in data:
                 for job_data in data['data']:
                     # 검색어가 제목이나 회사명에 포함되는지 확인
-                    # 개발자 관련 키워드들로 필터링 완화
                     position = job_data.get('position', '').lower()
                     company = job_data.get('company', {}).get('name', '').lower()
                     
-                    # 개발자 관련 키워드들
-                    dev_keywords = ['python', 'javascript', 'java', 'react', 'node', 'developer', 'engineer', 'programmer', 'frontend', 'backend', 'full-stack', 'software', '개발자', '엔지니어', '프로그래머']
-                    
+                    # 검색어가 포함된 경우만 추가
                     if (term.lower() in position or 
-                        term.lower() in company or
-                        any(keyword in position for keyword in dev_keywords)):
+                        term.lower() in company):
                         jobs.append(jobs_detail(job_data))
             
             return jobs
