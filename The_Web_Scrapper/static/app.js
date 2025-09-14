@@ -162,20 +162,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loading(){
     if (index_submit_button) {
-        index_submit_button.classList.add("hidden");
+    index_submit_button.classList.add("hidden");
     }
     if (index_loading_button) {
-        index_loading_button.classList.remove("hidden");
+    index_loading_button.classList.remove("hidden");
     }
 }
 
 function main(){
     location.href = "/";
     if (index_submit_button) {
-        index_submit_button.classList.remove("hidden");
+    index_submit_button.classList.remove("hidden");
     }
     if (index_loading_button) {
-        index_loading_button.classList.add("hidden");
+    index_loading_button.classList.add("hidden");
     }
 }
 
@@ -192,5 +192,78 @@ function resetSearchButton(){
 // 페이지 로드 시 검색 버튼 상태 복원
 document.addEventListener('DOMContentLoaded', function() {
     resetSearchButton();
+    
+    // 모바일 터치 이벤트 최적화
+    addMobileTouchEvents();
 });
+
+// 모바일 터치 이벤트 추가
+function addMobileTouchEvents() {
+    // 스크래퍼 아이템에 터치 이벤트 추가
+    const scraperItems = document.querySelectorAll('.scraper-item');
+    scraperItems.forEach(item => {
+        item.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            this.style.transform = 'scale(0.95)';
+        });
+        
+        item.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            this.style.transform = 'scale(1)';
+            // 클릭 이벤트 트리거
+            this.click();
+        });
+        
+        item.addEventListener('touchcancel', function(e) {
+            e.preventDefault();
+            this.style.transform = 'scale(1)';
+        });
+    });
+    
+    // 지역 아이템에 터치 이벤트 추가
+    const locationItems = document.querySelectorAll('.location-item');
+    locationItems.forEach(item => {
+        item.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            this.style.transform = 'scale(0.95)';
+        });
+        
+        item.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            this.style.transform = 'scale(1)';
+            // 클릭 이벤트 트리거
+            this.click();
+        });
+        
+        item.addEventListener('touchcancel', function(e) {
+            e.preventDefault();
+            this.style.transform = 'scale(1)';
+        });
+    });
+    
+    // 버튼에 터치 피드백 추가
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        button.addEventListener('touchstart', function(e) {
+            this.style.transform = 'scale(0.95)';
+            this.style.opacity = '0.8';
+        });
+        
+        button.addEventListener('touchend', function(e) {
+            this.style.transform = 'scale(1)';
+            this.style.opacity = '1';
+        });
+        
+        button.addEventListener('touchcancel', function(e) {
+            this.style.transform = 'scale(1)';
+            this.style.opacity = '1';
+        });
+    });
+    
+    // iOS Safari에서 줌 방지를 위한 메타 태그 확인
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) {
+        viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    }
+}
 

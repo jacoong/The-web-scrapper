@@ -32,3 +32,91 @@ img{
     animation: thirdroad 0.5s ease-in-out;
     cursor: pointer;
 }
+
+/* 모바일 반응형 스타일 */
+@media screen and (max-width: 768px) {
+    .result_title{
+        font-size: 12vw;
+        margin-top: 5vw;
+    }
+    
+    .result_sentense{
+        font-size: 5vw;
+        padding: 0 5vw;
+    }
+    
+    .result_export{
+        font-size: 4vw;
+        padding: 0 3vw;
+    }
+    
+    img{
+        width: 8vw;
+        left: 3vw;
+        top: 3vw;
+    }
+    
+    /* 모바일에서 테이블 반응형 처리 */
+    table {
+        font-size: 14px;
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
+    }
+    
+    th, td {
+        padding: 8px 4px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    /* 모바일에서 링크 버튼 크기 조정 */
+    .job-link {
+        display: inline-block;
+        padding: 8px 12px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 14px;
+        margin: 2px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .result_title{
+        font-size: 15vw;
+        margin-top: 3vw;
+    }
+    
+    .result_sentense{
+        font-size: 6vw;
+        padding: 0 3vw;
+    }
+    
+    .result_export{
+        font-size: 5vw;
+        padding: 0 2vw;
+    }
+    
+    img{
+        width: 10vw;
+        left: 2vw;
+        top: 2vw;
+    }
+    
+    /* 매우 작은 화면에서 테이블 최적화 */
+    table {
+        font-size: 12px;
+    }
+    
+    th, td {
+        padding: 6px 2px;
+    }
+    
+    .job-link {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+}

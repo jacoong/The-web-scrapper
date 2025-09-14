@@ -2,6 +2,281 @@
 @import 'result.css';
 @import 'sorry.css';
 
+/* 메인 페이지 스타일 */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 3em;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 1.2em;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.search-input {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.search-input:focus {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.search-input::placeholder {
+    color: #666;
+}
+
+.submit-button {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: auto !important;
+}
+
+.submit-button:hover {
+    background: linear-gradient(45deg, #45a049, #4CAF50);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.loading-button {
+    background: linear-gradient(45deg, #FF6B6B, #FF8E8E);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: not-allowed;
+    opacity: 0.7;
+    width: auto !important;
+}
+
+.features {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.feature-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    color: #e0e0e0;
+    font-size: 0.9em;
+}
+
+.feature-icon {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.sources-info {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #e0e0e0;
+    font-size: 0.9em;
+}
+
+.sources-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.source-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.source-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.source-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.source-item.selected {
+    background: rgba(76, 175, 80, 0.3);
+    border-color: #4CAF50;
+    color: #fff;
+}
+
+.scraper-selection {
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.scraper-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.scraper-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.scraper-item.selected {
+    background: rgba(76, 175, 80, 0.3);
+    border-color: #4CAF50;
+    color: #fff;
+}
+
+.location-selection {
+    margin: 20px 0;
+    max-height: 400px;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.location-item {
+    padding: 10px;
+    margin: 5px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.location-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.location-item.selected {
+    background: rgba(33, 150, 243, 0.3);
+    border: 2px solid #2196F3;
+    color: #fff;
+}
+
+.location-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.location-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+}
+
+.location-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.city-level, .district-level {
+    margin: 10px 0;
+}
+
+.city-level h4, .district-level h4 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.city-level .location-item, .district-level .location-item {
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+}
+
+.city-level .location-item:hover, .district-level .location-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.city-level .location-item.selected, .district-level .location-item.selected {
+    background: rgba(33, 150, 243, 0.3);
+    border: 2px solid #2196F3;
+    color: #fff;
+}
+
 @keyframes firstroad {
     0% {
         transform: scale( 1.0 );
@@ -91,4 +366,166 @@ form{
 
 .hidden{
     display: none;
+}
+
+/* 모바일 반응형 스타일 */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .main-container {
+        width: 95%;
+        padding: 20px;
+        margin: 10px auto;
+    }
+    
+    .title{
+        font-size: 2rem;
+        margin: 20px 0;
+    }
+    
+    .title_image{
+        width: 80px;
+        height: 80px;
+    }
+    
+    form{
+        width: 100% !important;
+        margin: 0 auto;
+    }
+    
+    /* 모바일에서 폼 요소들 크기 조정 */
+    input[type="text"] {
+        font-size: 16px; /* iOS 줌 방지 */
+        padding: 15px;
+        margin: 10px 0;
+    }
+    
+    /* 스크래퍼 선택 체크박스 모바일 최적화 */
+    .scraper-selection {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 20px 0;
+    }
+    
+    .scraper-item {
+        padding: 15px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        min-height: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .scraper-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+    
+    .scraper-item.selected {
+        background: rgba(76, 175, 80, 0.3);
+        border-color: #a4efa7;
+    }
+    
+    /* 지역 선택 최적화 */
+    .location-selection {
+        max-height: 300px;
+        overflow-y: auto;
+        margin: 20px 0;
+    }
+    
+    .location-item {
+        padding: 12px;
+        margin: 5px 0;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-height: 44px; /* 터치 타겟 최소 크기 */
+        display: flex;
+        align-items: center;
+    }
+    
+    .location-item:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .location-item.selected {
+        background: rgba(33, 150, 243, 0.3);
+        border: 2px solid #2196F3;
+    }
+    
+    /* 버튼 크기 조정 */
+    .submit-button, .loading-button {
+        width: 100%;
+        padding: 8px;
+        font-size: 15px;
+        border-radius: 16px;
+        min-height: 38px;
+    }
+    
+    /* 피처 섹션 모바일 최적화 */
+    .features {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
+    .feature-item {
+        padding: 12px;
+        font-size: 0.8em;
+    }
+    
+    .sources-info {
+        width: 100%;
+        margin-top: 20px;
+        padding: 15px;
+        font-size: 0.8em;
+    }
+    
+    .source-list {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title{
+        font-size: 1.5rem;
+        margin: 3vw;
+    }
+
+    .subtitle{
+        font-size: 1rem;
+    }
+    
+    .title_image{
+        width: 25vw;
+        height: 25vw;
+    }
+    
+    form{
+        width: 100%;
+    }
+    
+    .main-container{
+        width: 100%;
+    }
+    /* 매우 작은 화면에서 스크래퍼 선택을 세로로 배치 */
+    .scraper-selection {
+        grid-template-columns: 1fr;
+    }
+    
+    /* 지역 선택을 더 컴팩트하게 */
+    .location-selection {
+        max-height: 200px;
+        overflow-y: auto;
+    }
 }

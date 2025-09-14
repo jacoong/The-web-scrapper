@@ -9,3 +9,28 @@
     display: inline-block;
     width: 17vw;
 }
+
+/* 모바일 반응형 스타일 */
+@media screen and (max-width: 768px) {
+    .sorry_button{
+        width: 50vw;
+        padding: 15px;
+        font-size: 18px;
+    }
+    
+    .container{
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .sorry_button{
+        width: 80vw;
+        padding: 12px;
+        font-size: 16px;
+    }
+    
+    .container{
+        padding: 15px;
+    }
+}
