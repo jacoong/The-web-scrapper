@@ -5,7 +5,7 @@ from saramin import get_saramin_job
 from jobplanet import get_jobplanet_job
 from worknet import get_worknet_job
 from save import save_to_file
-app = Flask("test_App")
+app = Flask(__name__)
 app.config["SECRET_KEY"] = "ABCD"
 db={}
 

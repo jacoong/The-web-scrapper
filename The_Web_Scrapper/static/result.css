@@ -1,0 +1,34 @@
+.result_title{
+    text-align:center;
+    font-size:8vw;
+    transition: all 1s ease-in-out;
+    margin-top: 7vw;
+    animation: secondroad 1.5s ease-in-out;
+}
+
+.result_title:hover{
+    color:darkgray;
+    scale:110%;
+}
+
+.result_sentense{
+    text-align: center;
+    animation: secondroad 1.5s ease-in-out;
+    font-size:3vw;
+}   
+
+.result_export{
+    text-align: center;
+    padding:0vw 1vw;
+    font-size: 2vw;
+    font-weight: bold;
+}
+
+img{
+    width: 3vw;
+    position: absolute;
+    left: 5vw;
+    top: 5vw;
+    animation: thirdroad 0.5s ease-in-out;
+    cursor: pointer;
+}
