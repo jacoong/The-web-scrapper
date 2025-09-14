@@ -2,8 +2,8 @@ from logging import exception
 from flask import Flask, redirect, render_template, request, send_file, flash
 from wanted import get_wanted_job
 from saramin import get_saramin_job
-from jobplanet import get_jobplanet_job
-from worknet import get_worknet_job
+from remoteok import get_remoteok_job
+from weworkremotely import get_weworkremotely_job
 from save import save_to_file
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "ABCD"
@@ -37,8 +37,8 @@ def react():
     word = request.args.get('word')
     wanted_enabled = request.args.get('wanted', 'true').lower() == 'true'
     saramin_enabled = request.args.get('saramin', 'true').lower() == 'true'
-    jobplanet_enabled = request.args.get('jobplanet', 'true').lower() == 'true'
-    worknet_enabled = request.args.get('worknet', 'true').lower() == 'true'
+    remoteok_enabled = request.args.get('remoteok', 'true').lower() == 'true'
+    weworkremotely_enabled = request.args.get('weworkremotely', 'true').lower() == 'true'
     selected_locations = request.args.get('locations', '')
     
     if word:
@@ -58,13 +58,13 @@ def react():
                 saramin_jobs = get_saramin_job(word)
                 jobs.extend(saramin_jobs)
                 
-            if jobplanet_enabled:
-                jobplanet_jobs = get_jobplanet_job(word)
-                jobs.extend(jobplanet_jobs)
+            if remoteok_enabled:
+                remoteok_jobs = get_remoteok_job(word)
+                jobs.extend(remoteok_jobs)
                 
-            if worknet_enabled:
-                worknet_jobs = get_worknet_job(word)
-                jobs.extend(worknet_jobs)
+            if weworkremotely_enabled:
+                weworkremotely_jobs = get_weworkremotely_job(word)
+                jobs.extend(weworkremotely_jobs)
             
             db[word] = jobs
             if (len(db[word]) == 0):
@@ -76,8 +76,8 @@ def react():
         # 출처별 통계 계산
         wanted_count = len([job for job in jobs if job.get('source') == '원티드'])
         saramin_count = len([job for job in jobs if job.get('source') == '사람인'])
-        jobplanet_count = len([job for job in jobs if job.get('source') == 'JobPlanet'])
-        worknet_count = len([job for job in jobs if job.get('source') == 'WorkNet'])
+        remoteok_count = len([job for job in jobs if job.get('source') == 'RemoteOK'])
+        weworkremotely_count = len([job for job in jobs if job.get('source') == 'WeWorkRemotely'])
         
         return render_template("/report.html", 
                              word=word, 
@@ -85,12 +85,12 @@ def react():
                              jobs=jobs,
                              wanted_count=wanted_count,
                              saramin_count=saramin_count,
-                             jobplanet_count=jobplanet_count,
-                             worknet_count=worknet_count,
+                             remoteok_count=remoteok_count,
+                             weworkremotely_count=weworkremotely_count,
                              wanted_enabled=wanted_enabled,
                              saramin_enabled=saramin_enabled,
-                             jobplanet_enabled=jobplanet_enabled,
-                             worknet_enabled=worknet_enabled,
+                             remoteok_enabled=remoteok_enabled,
+                             weworkremotely_enabled=weworkremotely_enabled,
                              selected_locations=selected_locations)
     
     return redirect("/")

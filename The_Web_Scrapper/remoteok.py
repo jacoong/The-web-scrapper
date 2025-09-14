@@ -46,5 +46,5 @@ def jobs_detail(job_data):
         'link': link
     }
 
-def get_remote_job(word):
-    return (extract_jobs(word))
+def get_remoteok_job(word):
+    return extract_jobs(word)
