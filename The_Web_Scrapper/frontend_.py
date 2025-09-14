@@ -14,7 +14,7 @@ def home():
     return render_template("index.html")
 
 def filter_jobs_by_location(jobs, selected_locations):
-    """선택된 지역에 따라 채용공고 필터링"""
+    """선택된 지역에 따라 채용공고 필터링 (해외 사이트 제외)"""
     if not selected_locations or selected_locations == '':
         return jobs
     
@@ -22,6 +22,13 @@ def filter_jobs_by_location(jobs, selected_locations):
     filtered_jobs = []
     
     for job in jobs:
+        job_source = job.get('source', '')
+        
+        # RemoteOK와 WeWorkRemotely는 해외 사이트이므로 지역 필터링 제외
+        if job_source in ['RemoteOK', 'WeWorkRemotely']:
+            filtered_jobs.append(job)
+            continue
+        
         job_location = job.get('location', '').lower()
         
         # 선택된 지역 중 하나라도 포함되면 포함

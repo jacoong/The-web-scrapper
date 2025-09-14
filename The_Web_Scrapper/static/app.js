@@ -179,3 +179,18 @@ function main(){
     }
 }
 
+function resetSearchButton(){
+    // 검색 완료 후 버튼 상태 복원
+    if (index_submit_button) {
+        index_submit_button.classList.remove("hidden");
+    }
+    if (index_loading_button) {
+        index_loading_button.classList.add("hidden");
+    }
+}
+
+// 페이지 로드 시 검색 버튼 상태 복원
+document.addEventListener('DOMContentLoaded', function() {
+    resetSearchButton();
+});
+

@@ -43,7 +43,12 @@ def jobs_detail(job_data):
         'company': company,
         'position': position,
         'location': location,
-        'link': link
+        'experience': 'N/A',
+        'requirements': 'N/A',
+        'main_tasks': 'N/A',
+        'salary': 'N/A',
+        'link': link,
+        'source': 'RemoteOK'
     }
 
 def get_remoteok_job(word):

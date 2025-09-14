@@ -78,7 +78,12 @@ def jobs_detail(job):
             'company': company,
             'position': position,
             'location': location,
-            'link': link
+            'experience': 'N/A',
+            'requirements': 'N/A',
+            'main_tasks': 'N/A',
+            'salary': 'N/A',
+            'link': link,
+            'source': 'WeWorkRemotely'
         }
     except Exception as e:
         print(f"Error parsing job details: {e}")
@@ -86,7 +91,12 @@ def jobs_detail(job):
             'company': 'N/A',
             'position': 'N/A',
             'location': 'Remote',
-            'link': ''
+            'experience': 'N/A',
+            'requirements': 'N/A',
+            'main_tasks': 'N/A',
+            'salary': 'N/A',
+            'link': '',
+            'source': 'WeWorkRemotely'
         }
 
 
