@@ -14,7 +14,7 @@ def extract_jobs(term):
     try:
         response = requests.get(url, headers=headers)
         if response.status_code == 200:
-            soup = BeautifulSoup(response.text, 'html.parser')
+            soup = BeautifulSoup(response.text, 'html5lib')
             job_list = soup.find_all('div', class_='item_recruit')
             
             jobs = []
